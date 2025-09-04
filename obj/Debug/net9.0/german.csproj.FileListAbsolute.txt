@@ -1,0 +1,4 @@
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\obj\Debug\net9.0\german.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\obj\Debug\net9.0\german.AssemblyInfoInputs.cache
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\obj\Debug\net9.0\german.AssemblyInfo.cs
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\obj\Debug\net9.0\german.csproj.CoreCompileInputs.cache

@@ -1,0 +1,14 @@
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\bin\Debug\net8.0\abstractos.exe
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\bin\Debug\net8.0\abstractos.deps.json
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\bin\Debug\net8.0\abstractos.runtimeconfig.json
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\bin\Debug\net8.0\abstractos.dll
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\bin\Debug\net8.0\abstractos.pdb
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\obj\Debug\net8.0\abstractos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\obj\Debug\net8.0\abstractos.AssemblyInfoInputs.cache
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\obj\Debug\net8.0\abstractos.AssemblyInfo.cs
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\obj\Debug\net8.0\abstractos.csproj.CoreCompileInputs.cache
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\obj\Debug\net8.0\abstractos.dll
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\obj\Debug\net8.0\refint\abstractos.dll
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\obj\Debug\net8.0\abstractos.pdb
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\obj\Debug\net8.0\abstractos.genruntimeconfig.cache
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\abstractos\obj\Debug\net8.0\ref\abstractos.dll
