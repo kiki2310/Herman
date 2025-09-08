@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Busqueda_renglones-columnas_03-09-25/1.0.0": {
+        "runtime": {
+          "Busqueda_renglones-columnas_03-09-25.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Busqueda_renglones-columnas_03-09-25/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

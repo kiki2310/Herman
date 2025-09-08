@@ -2,3 +2,4 @@ C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\obj\Debug\net9.0\german.G
 C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\obj\Debug\net9.0\german.AssemblyInfoInputs.cache
 C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\obj\Debug\net9.0\german.AssemblyInfo.cs
 C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\obj\Debug\net9.0\german.csproj.CoreCompileInputs.cache
+C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\obj\Debug\net9.0\german.sourcelink.json
