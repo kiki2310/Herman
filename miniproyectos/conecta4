@@ -1,0 +1,356 @@
+#include <iostream>
+#include <string> // Para usar std::string
+#include <limits> // Para std::numeric_limits
+#include <cstdlib> // Para system("clear") o system("cls")
+#include <ctime>   // Para srand() y time()
+
+// En Windows, la cabecera <windows.h> define macros para min y max,
+// lo que causa conflictos con std::numeric_limits.
+// NOMINMAX evita que se definan estas macros.
+#define NOMINMAX
+
+// Incluir windows.h solo en Windows para gotoxy
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+using namespace std;
+
+const int fila = 6;
+const int columna = 7;
+int tablero[fila][columna];
+
+void iniciarTablero() {
+    for (int i = 0; i < fila; i++) {
+        for (int j = 0; j < columna; j++) {
+            tablero[i][j] = 0;
+        }
+    }
+}
+
+
+#ifdef _WIN32
+// Implementación de gotoxy para Windows
+void gotoxy(int x, int y) {
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+#else
+// Implementación de gotoxy para sistemas UNIX/Linux usando secuencias de escape ANSI
+void gotoxy(int x, int y) {
+    // En consolas UNIX, las coordenadas empiezan en (1,1)
+    cout << "\033[" << y << ";" << x << "H";
+}
+#endif
+
+void marco() {
+    int ancho = 80;
+    int alto = 24;
+
+    // Usamos caracteres ASCII extendidos para un marco más estético
+    // Esquinas
+    gotoxy(1, 1); cout << (char)201;
+    gotoxy(ancho, 1); cout << (char)187;
+    gotoxy(1, alto); cout << (char)200;
+    gotoxy(ancho, alto); cout << (char)188;
+
+    // Líneas horizontales
+    for (int x = 2; x < ancho; x++) {
+        gotoxy(x, 1); cout << (char)205;
+        gotoxy(x, alto); cout << (char)205;
+    }
+
+    // Líneas verticales
+    for (int y = 2; y < alto; y++) {
+        gotoxy(1, y); cout << (char)186;
+        gotoxy(ancho, y); cout << (char)186;
+    }
+
+    // Título
+    string titulo = "BIENVENIDO A CONECTA4";
+    gotoxy((ancho - titulo.length()) / 2, 3);
+    cout << titulo;
+}
+
+void limpiarPantalla() {
+    // Limpia la pantalla dependiendo del sistema operativo
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+int tablamostrar() {
+    limpiarPantalla();
+    marco();
+    // Mostrar el tablero de juego
+    for (int i = 0; i < fila; i++) {
+        // Dibuja la línea horizontal que separa las filas
+        gotoxy(10, 6 + i * 2);
+        for (int k = 0; k < columna; k++) {
+            cout << "+---";
+        }
+        cout << "+";
+
+        for (int j = 0; j < columna; j++) {
+            gotoxy(10 + j * 4, 5 + i * 2);
+            char simbolo = tablero[i][j] == 1 ? 'X' : (tablero[i][j] == 2 ? 'O' : ' ');
+            cout << "| " << simbolo << " ";
+        }
+        gotoxy(10 + columna * 4, 5 + i * 2);
+        cout << "|";
+    }
+    // Dibuja la línea inferior del tablero
+    gotoxy(10, 5 + fila * 2);
+    for (int k = 0; k < columna; k++) {
+        cout << "+---";
+    }
+    cout << "+";
+
+    // Muestra los números de columna debajo del tablero
+    gotoxy(10, 6 + fila * 2);
+    for (int j = 0; j < columna; j++) {
+        cout << "  " << j + 1 << " ";
+    }
+    return 0;
+}
+
+void hacerMovimiento(int jugador) {
+    int columnaElegida = 0;
+    bool fichaColocada = false;
+
+    // Limpiar la línea de mensajes de error una vez antes de empezar.
+    gotoxy(28, 23);
+    cout << "                                        ";
+
+    while (!fichaColocada) {
+        // Limpiar la línea de entrada y mostrar el prompt.
+        gotoxy(28, 22);
+        cout << "                                        ";
+        gotoxy(28, 22);
+        cout << "Elige una columna (1-7): ";
+        cin >> columnaElegida;
+
+        if (cin.fail() || columnaElegida < 1 || columnaElegida > 7) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            gotoxy(28, 23);
+            cout << "Entrada invalida. Intenta de nuevo.";
+            continue; // El mensaje de error permanecerá visible.
+        }
+
+        // Limpiar el buffer de entrada para consumir el '\n' restante.
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        int col = columnaElegida - 1;
+        if (tablero[0][col] != 0) {
+            gotoxy(28, 23);
+            cout << "Esa columna esta llena. Intenta otra.";
+        } else {
+            for (int i = fila - 1; i >= 0; i--) {
+                if (tablero[i][col] == 0) {
+                    tablero[i][col] = jugador;
+                    fichaColocada = true;
+                    // Al tener éxito, limpiar la línea de mensajes.
+                    gotoxy(28, 23);
+                    cout << "                                        ";
+                    break;
+                }
+            }
+        }
+    }
+}
+
+void cpu() {
+    bool fichaColocada = false;
+    while (!fichaColocada) {
+        int col = rand() % 7; // Columna aleatoria entre 0 y 6
+        if (tablero[0][col] == 0) { // Si la columna no está llena
+            for (int i = fila - 1; i >= 0; i--) {
+                if (tablero[i][col] == 0) {
+                    tablero[i][col] = 2; // CPU es jugador 2
+                    fichaColocada = true;
+                    break;
+                }
+            }
+        }
+        // Si la columna está llena, el bucle se repetirá y elegirá otra.
+    }
+}
+
+bool tableroLleno() {
+    for (int j = 0; j < columna; j++) {
+        if (tablero[0][j] == 0) {
+            return false; // Si hay un espacio en la fila superior, no está lleno
+        }
+    }
+    return true; // Si no hay espacios en la fila superior, está lleno
+}
+
+int ganador() {
+    // Verificar horizontal
+    for (int i = 0; i < fila; i++) {
+        for (int j = 0; j <= columna - 4; j++) {
+            if (tablero[i][j] != 0 &&
+                tablero[i][j] == tablero[i][j + 1] &&
+                tablero[i][j] == tablero[i][j + 2] &&
+                tablero[i][j] == tablero[i][j + 3]) {
+                return tablero[i][j];
+            }
+        }
+    }
+
+    // Verificar vertical
+    for (int j = 0; j < columna; j++) {
+        for (int i = 0; i <= fila - 4; i++) {
+            if (tablero[i][j] != 0 &&
+                tablero[i][j] == tablero[i + 1][j] &&
+                tablero[i][j] == tablero[i + 2][j] &&
+                tablero[i][j] == tablero[i + 3][j]) {
+                return tablero[i][j];
+            }
+        }
+    }
+
+    // Verificar diagonal (abajo-derecha)
+    for (int i = 0; i <= fila - 4; i++) {
+        for (int j = 0; j <= columna - 4; j++) {
+            if (tablero[i][j] != 0 &&
+                tablero[i][j] == tablero[i + 1][j + 1] &&
+                tablero[i][j] == tablero[i + 2][j + 2] &&
+                tablero[i][j] == tablero[i + 3][j + 3]) {
+                return tablero[i][j];
+            }
+        }
+    }
+
+    // Verificar diagonal (arriba-derecha)
+    for (int i = 3; i < fila; i++) {
+        for (int j = 0; j <= columna - 4; j++) {
+            if (tablero[i][j] != 0 &&
+                tablero[i][j] == tablero[i - 1][j + 1] &&
+                tablero[i][j] == tablero[i - 2][j + 2] &&
+                tablero[i][j] == tablero[i - 3][j + 3]) {
+                return tablero[i][j];
+            }
+        }
+    }
+
+    return 0; // No hay ganador
+}
+
+int mostrarMenu() {
+    limpiarPantalla();
+    marco();
+
+    int opcion;
+    // Posicionar el menú dentro del marco
+    gotoxy(32, 8);
+    cout << "--- MENU DE OPCIONES ---";
+    gotoxy(36, 10);
+    cout << "1. Jugar";
+    gotoxy(36, 11);
+    cout << "2. CPU";
+    gotoxy(36, 12);
+    cout << "3. Salir";
+    gotoxy(32, 16);
+    cout << "Elige una opcion: ";
+    cin >> opcion;
+
+    // Manejo de entrada no válida
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        return 0; // Devolver 0 para indicar opción inválida
+    }
+
+    // Limpiar el buffer por si el usuario introduce algo más (ej. "1 abc")
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    return opcion;
+}
+
+int main() {
+    srand(time(NULL)); // Inicializar semilla para números aleatorios
+    int opcion = 0;
+
+    do {
+        opcion = mostrarMenu();
+        int jugadorActual = 1;
+        int ganadorEncontrado = 0;
+
+        switch (opcion) {
+        case 1: // Jugar J1 vs J2
+            iniciarTablero();
+            while (ganadorEncontrado == 0) {
+                tablamostrar();
+                gotoxy(28, 21);
+                cout << "Turno del Jugador " << jugadorActual << " (" << (jugadorActual == 1 ? 'X' : 'O') << ")";
+                hacerMovimiento(jugadorActual);
+
+                ganadorEncontrado = ganador();
+                if (ganadorEncontrado == 0 && tableroLleno()) {
+                    ganadorEncontrado = -1; // Empate
+                }
+                jugadorActual = (jugadorActual == 1) ? 2 : 1;
+            }
+            tablamostrar();
+            gotoxy(28, 22);
+            if (ganadorEncontrado != -1) {
+                cout << "¡El Jugador " << ganadorEncontrado << " ha ganado! Presiona Enter...";
+            } else {
+                cout << "¡Es un empate! Presiona Enter...";
+            }
+            cin.get();
+            break;
+
+        case 2: // Jugar vs CPU
+            iniciarTablero();
+            while (ganadorEncontrado == 0) {
+                tablamostrar();
+                gotoxy(28, 21);
+                cout << "Turno del Jugador " << jugadorActual << " (" << (jugadorActual == 1 ? 'X' : 'O') << ")";
+                if (jugadorActual == 1) {
+                    hacerMovimiento(1);
+                } else {
+                    gotoxy(28, 22); cout << "La CPU esta pensando...";
+                    cpu();
+                }
+
+                ganadorEncontrado = ganador();
+                if (ganadorEncontrado == 0 && tableroLleno()) {
+                    ganadorEncontrado = -1; // Empate
+                }
+                jugadorActual = (jugadorActual == 1) ? 2 : 1;
+            }
+            tablamostrar();
+            gotoxy(28, 22);
+            if (ganadorEncontrado == 1) {
+                cout << "¡Felicidades, has ganado! Presiona Enter...";
+            } else if (ganadorEncontrado == 2) {
+                cout << "La CPU ha ganado. Presiona Enter...";
+            } else {
+                cout << "¡Es un empate! Presiona Enter...";
+            }
+            cin.get();
+            break;
+
+        case 3: // Salir
+            gotoxy(28, 18); cout << "Gracias por jugar. ¡Hasta luego!";
+            cin.get();
+            break;
+
+        default: // Opción inválida
+            gotoxy(34, 18); cout << "Opcion no valida.";
+            gotoxy(28, 19); cout << "Presiona Enter para intentar de nuevo...";
+            cin.get();
+            break;
+        }
+    } while (opcion != 3);
+
+    limpiarPantalla();
+    return 0;
+}
