@@ -4,6 +4,14 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+        {
+            "type": "java",
+            "name": "burbuja",
+            "request": "launch",
+            "mainClass": "Burbuja",
+            "projectName": "german_b9b0b4f2"
+        },
         {
             "type": "java",
             "name": "matriz",

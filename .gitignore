@@ -1,0 +1,18 @@
+## Archivos de configuración del editor
+.vscode/
+
+## Artefactos de compilación y ejecutables
+bin/
+obj/
+*.o
+*.exe
+*.out
+
+## Archivos de clases de Java
+*.class
+
+## Archivos de usuario de C#
+*.csproj.user
+
+## Dependencias de Node.js
+node_modules/

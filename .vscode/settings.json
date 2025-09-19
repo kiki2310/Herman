@@ -2,5 +2,11 @@
     "files.associations": {
         "vector": "cpp"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "java.project.sourcePaths": [
+        "abstractos 28-08-2025",
+        "arreglos 27-08-2025",
+        "burbuja_19-09-2025",
+        "busqueda lineal 01-09-25"
+    ]
 }
