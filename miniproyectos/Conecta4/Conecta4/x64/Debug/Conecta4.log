@@ -1,4 +1,0 @@
-﻿  Conecta4.cpp
-C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\miniproyectos\Conecta4\Conecta4\Conecta4.cpp(73,38): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\miniproyectos\Conecta4\Conecta4\Conecta4.cpp(278,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Conecta4.vcxproj -> C:\Users\malac\OneDrive\Escritorio\trabajos uni\german\miniproyectos\Conecta4\x64\Debug\Conecta4.exe

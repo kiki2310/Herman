@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "vector": "cpp"
+        "vector": "cpp",
+        "conecta4": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "java.project.sourcePaths": [
