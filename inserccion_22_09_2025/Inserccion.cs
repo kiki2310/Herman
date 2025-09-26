@@ -1,10 +1,10 @@
 using System;
 
-public class Inserccion   
+public class Inserccion
 {
     public static void Main(string[] args)
     {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        int[] arr = { 64, 34, 25, 12, 22, 11, 90 };
         OrdenarPorInsercion(arr);
         Console.WriteLine("arreglo ordenado: " + string.Join(", ", arr));
     }
