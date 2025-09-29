@@ -1,0 +1,14 @@
+# .gitignore para proyectos .NET
+
+# Carpetas de compilación
+[Bb]in/
+[Oo]bj/
+
+# Archivos generados por Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de caché
+*.cache

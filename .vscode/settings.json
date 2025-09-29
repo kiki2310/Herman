@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "conecta4": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled",
+    "java.project.sourcePaths": [
+        "abstractos 28-08-2025",
+        "arreglos 27-08-2025",
+        "burbuja_19-09-2025",
+        "busqueda lineal 01-09-25",
+        "seleccion_25_09_2025",
+        "Miniexamen",
+        "miniexamen"
+    ],
+    "java.project.referencedLibraries": []
+}
