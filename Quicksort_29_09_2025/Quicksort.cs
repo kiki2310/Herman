@@ -4,7 +4,7 @@ namespace Quicksort_29_09_2025
 {
     public class Quicksort
     {
-        public static void main(string[] args)
+        public static void Main(string[] args)
         {
             int[] array = { 34, 7, 23, 32, 5, 62 };
             Console.WriteLine("Original array: " + string.Join(", ", array));
