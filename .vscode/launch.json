@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Heapsort",
+            "request": "launch",
+            "mainClass": "Heapsort",
+            "projectName": "german_b9b0b4f2"
+        },
+        {
+            "type": "java",
             "name": "Examenparcial1",
             "request": "launch",
             "mainClass": "Examenparcial1",
