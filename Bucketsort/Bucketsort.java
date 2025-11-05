@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Arrays;
 
-public class BucketSort {
+public class Bucketsort {
     // Función de ordenamiento por inserción
     public static void insertionSort(List<Double> bucket) {
         for (int j = 1; j < bucket.size(); j++) {

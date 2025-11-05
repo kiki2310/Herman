@@ -64,13 +64,11 @@ public class Examenparcial1 {
         int numbuscado = scanner.nextInt();
         scanner.close();
         int crep=0;
-        boolean encontrado=false;
         System.out.println("---Busqueda en Matriz 3D ---");
         for (int i=0;i <3;i++){
             for(int j=0;j<3;j++){
                 for(int k=0;k<3;k++){
                 if (matriz3d[i][j][k]==numbuscado) {
-                        encontrado=true;
                         pos[crep]="Posicion: ["+i+"]["+j+"]["+k+"]";
                         crep++;
                     }

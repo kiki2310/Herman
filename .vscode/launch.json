@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MergeSort",
+            "request": "launch",
+            "mainClass": "MergeSort",
+            "projectName": "german_b9b0b4f2"
+        },
+        {
+            "type": "java",
+            "name": "Sudoku",
+            "request": "launch",
+            "mainClass": "Sudoku",
+            "projectName": "german_b9b0b4f2"
+        },
+        {
+            "type": "java",
+            "name": "sodoku",
+            "request": "launch",
+            "mainClass": "sodoku",
+            "projectName": "german_b9b0b4f2"
+        },
+        {
+            "type": "java",
+            "name": "Radixsort",
+            "request": "launch",
+            "mainClass": "Radixsort",
+            "projectName": "german_b9b0b4f2"
+        },
+        {
+            "type": "java",
             "name": "Heapsort",
             "request": "launch",
             "mainClass": "Heapsort",

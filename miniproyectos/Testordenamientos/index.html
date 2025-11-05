@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comparador de Ordenamientos</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header>
+  <h1>Comparador de Ordenamientos</h1>
+  <div class="sub">Tamaños (100, 1 000, 10 000, 100000) tipo (ordenado, medio, inverso). </div>
+</header>
+
+<div class="wrap">
+  <!-- CONTROLES -->
+  <section class="card controls">
+    <h2>Controles</h2>
+    <div class="grid2">
+      <div>
+        <div class="small">Tamaños</div>
+        <div class="badges" id="sizesBox"></div>
+      </div>
+
+      <div>
+        <div class="small">Tipo</div>
+        <div class="badges">
+          <label class="pill"><input type="checkbox" class="pre" value="sorted" checked/> Ordenado</label>
+          <label class="pill"><input type="checkbox" class="pre" value="almost" checked/> Medio</label>
+          <label class="pill"><input type="checkbox" class="pre" value="reversed" checked/> Inverso</label>
+        </div>
+      </div>
+
+      <div>
+        <div class="small">Algoritmos</div>
+        <div id="algosBox" class="grid2"></div>
+        <div class="small">Por defecto se omiten <b>O(n²)</b> en 100 000; puedes forzarlos.</div>
+      </div>
+
+      <div class="row">
+        <label class="pill"><input id="forceQuadratic" type="checkbox" /> Forzar O(n²) en 100 000</label>
+        <label class="pill"><input id="randomPivot" type="checkbox" checked /> Quicksort pivote aleatorio</label>
+        <label class="pill"><input id="reps" type="number" value="1" min="1" style="width:90px"> Repeticiones</label>
+      </div>
+
+      <div class="row">
+        <button id="runBtn">Ejecutar benchmarks</button>
+        <button class="secondary" id="clearBtn">Limpiar resultados</button>
+      </div>
+
+      <div class="log" id="log"></div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section class="card results">
+    <h2>Resultados</h2>
+    <div class="flex">
+      <label>Escenario para gráfica:
+        <select id="scenarioSelect"></select>
+      </label>
+      <span class="small">Y: milisegundos (menos es mejor). Cada método mantiene su color.</span>
+    </div>
+
+    <div style="margin-top:10px">
+      <canvas id="chart" height="240"></canvas>
+    </div>
+
+    <div style="margin-top:16px">
+      <h3 style="margin:0 0 8px; font-size:15px">Tabla (ranking por escenario)</h3>
+      <div id="tables"></div>
+    </div>
+  </section>
+</div>
+
+<!-- JS (orden importa) -->
+<script src="src/algorithms.js"></script>
+<script src="src/generate.js"></script>
+<script src="src/bench.js"></script>
+<script src="src/chart.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>

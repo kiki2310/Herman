@@ -11,7 +11,11 @@
         "busqueda lineal 01-09-25",
         "Examenp1",
         "Heapsort_08_10_2025",
-        "Bucketsort"
+        "Bucketsort",
+        "Radixsort",
+        "miniproyectos",
+        "Mergesort",
+        "Hashsort"
     ],
     "java.project.referencedLibraries": []
 }
