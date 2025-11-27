@@ -1,0 +1,17 @@
+# Visual Studio cache files
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.ipch
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+
+# Compressed files
+*.zip
+*.rar
+*.7z
