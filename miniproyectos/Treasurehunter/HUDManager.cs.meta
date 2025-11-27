@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 333b41a3dd44d3c4f95f42f13c11b270
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hpText: {instanceID: 0}
+  - energyText: {instanceID: 0}
+  - treasureText: {instanceID: 0}
+  - coinsText: {instanceID: 0}
+  - normalMaterial: {fileID: -6693313915199213351, guid: b8ec9a34a62e40942929a2a386e1f271, type: 2}
+  - goldMaterial: {fileID: 2100000, guid: 7c479f495f43afa4dae6fbf6972f9608, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
