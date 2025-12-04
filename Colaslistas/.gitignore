@@ -1,17 +1,20 @@
-# Visual Studio cache files
+# Archivos y carpetas de Visual Studio
 .vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos de compilación
 [Bb]in/
 [Oo]bj/
-*.user
-*.suo
-*.ipch
-
-# Build results
-[Dd]ebug/
 [Rr]elease/
-x64/
+[Dd]ebug/
 
-# Compressed files
+# Archivos grandes y comprimidos
 *.zip
 *.rar
 *.7z
+
+# Archivos de caché específicos que causaron el error
+*.ipch

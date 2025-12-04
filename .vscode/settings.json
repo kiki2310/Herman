@@ -7,15 +7,15 @@
     "java.project.sourcePaths": [
         "abstractos 28-08-2025",
         "arreglos 27-08-2025",
+        "Bucketsort",
         "burbuja_19-09-2025",
         "busqueda lineal 01-09-25",
         "Examenp1",
+        "Hashsort",
         "Heapsort_08_10_2025",
-        "Bucketsort",
-        "Radixsort",
-        "miniproyectos",
         "Mergesort",
-        "Hashsort"
+        "miniproyectos\\Arbol",
+        "Radixsort"
     ],
     "java.project.referencedLibraries": []
 }
